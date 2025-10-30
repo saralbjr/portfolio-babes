@@ -2,17 +2,17 @@
 
 // Navbar rendering & theme logic for vanilla JS
 const NAV_LINKS = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' }
 ];
 
 function renderNavbar() {
-    const links = NAV_LINKS.map(
-        (s) => `<li><a href="#${s.id}" class="nav-link" id="nav-${s.id}">${s.label}</a></li>`
-    ).join("");
-    return `
+  const links = NAV_LINKS.map(
+    (s) => `<li><a href="#${s.id}" class="nav-link" id="nav-${s.id}">${s.label}</a></li>`
+  ).join("");
+  return `
     <header class="navbar">
       <div class="container navbar-inner">
         <a href="#home" class="logo">Lashata Shakya</a>
@@ -31,13 +31,13 @@ const themeBtn = document.getElementById('theme-toggle');
 let dark = false;
 
 function updateThemeIcon() {
-    themeBtn.textContent = dark ? '☀️' : '🌙';
+  themeBtn.textContent = dark ? '☀️' : '🌙';
 }
 
 themeBtn.onclick = function () {
-    dark = !dark;
-    htmlEl.classList.toggle('dark', dark);
-    updateThemeIcon();
+  dark = !dark;
+  htmlEl.classList.toggle('dark', dark);
+  updateThemeIcon();
 };
 // load theme if stored later
 updateThemeIcon();
@@ -45,19 +45,19 @@ updateThemeIcon();
 // Highlight current nav link as section enters viewport
 window.addEventListener('scroll', setActiveNav);
 function setActiveNav() {
-    let best = 'home', bestTop = Infinity;
-    NAV_LINKS.forEach(link => {
-        const section = document.getElementById(link.id);
-        if (!section) return;
-        const top = Math.abs(section.getBoundingClientRect().top - 60);
-        if (top < bestTop) {
-            best = link.id; bestTop = top;
-        }
-    });
-    NAV_LINKS.forEach(link => {
-        const el = document.getElementById(`nav-${link.id}`);
-        el && el.classList.toggle('active', link.id === best);
-    });
+  let best = 'home', bestTop = Infinity;
+  NAV_LINKS.forEach(link => {
+    const section = document.getElementById(link.id);
+    if (!section) return;
+    const top = Math.abs(section.getBoundingClientRect().top - 60);
+    if (top < bestTop) {
+      best = link.id; bestTop = top;
+    }
+  });
+  NAV_LINKS.forEach(link => {
+    const el = document.getElementById(`nav-${link.id}`);
+    el && el.classList.toggle('active', link.id === best);
+  });
 }
 setActiveNav();
 
@@ -85,14 +85,9 @@ document.getElementById('about').innerHTML = `
       <h2 class="section-title reveal">About</h2>
       <div class="timeline">
         <div class="timeline-item card reveal">
-          <div class="timeline-date">2018 – 2022</div>
+          <div class="timeline-date">2018 – Present</div>
           <div class="timeline-role">Bachelor of Information Management</div>
           <div class="timeline-desc">Studied business, analytics, and information systems.</div>
-        </div>
-        <div class="timeline-item card reveal">
-          <div class="timeline-date">2022 – Present</div>
-          <div class="timeline-role">Digital Marketing Specialist</div>
-          <div class="timeline-desc">Driving growth through content, SEO, and paid media.</div>
         </div>
       </div>
     </div>
@@ -101,19 +96,12 @@ document.getElementById('about').innerHTML = `
 
 // PROJECTS
 const PROJECTS = [
-    {
-        title: "Portfolio Website",
-        description: "This website. Built with Next.js App Router and Tailwind CSS.",
-        tech: ["Next.js", "TypeScript", "Tailwind"],
-        github: "https://github.com/yourname/portfolio",
-        demo: "https://example.com"
-    },
-    {
-        title: "Dashboard UI",
-        description: "Responsive dashboard with charts and dark mode.",
-        tech: ["React", "Framer Motion", "Tailwind"],
-        github: "https://github.com/yourname/dashboard"
-    }
+  {
+    title: "Dashboard UI",
+    description: "Responsive dashboard with charts and dark mode.",
+    tech: ["React", "Framer Motion", "Tailwind"],
+    github: "https://github.com/yourname/dashboard"
+  }
 ];
 
 document.getElementById('projects').innerHTML = `
@@ -167,12 +155,12 @@ document.getElementById('footer').innerHTML = `
 
 // Reveal-on-scroll observer
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
 }, { rootMargin: "-10% 0% -10% 0%", threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
@@ -186,16 +174,16 @@ scrollBtn.textContent = '↑';
 document.body.appendChild(scrollBtn);
 
 function updateScrollTopVisibility() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const nearBottom = (window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 200);
-    const beyondThreshold = scrollY > 600;
-    const shouldShow = nearBottom || beyondThreshold;
-    scrollBtn.classList.toggle('visible', shouldShow);
+  const scrollY = window.scrollY || window.pageYOffset;
+  const nearBottom = (window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 200);
+  const beyondThreshold = scrollY > 600;
+  const shouldShow = nearBottom || beyondThreshold;
+  scrollBtn.classList.toggle('visible', shouldShow);
 }
 
 window.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
 updateScrollTopVisibility();
 
 scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
