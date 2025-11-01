@@ -365,7 +365,7 @@ document.getElementById('contact').innerHTML = `
       <p class="reveal" style="margin-bottom:1.2em;color:var(--muted);max-width:38ch;">
         Feel free to reach out via email. I usually respond quickly.
       </p>
-      <a href="mailto:lashatashakya9@example.com" class="btn-primary reveal">✉️ lashatashakya9@example.com</a>
+      <a href="mailto:lashatashakya9@gmail.com" class="btn-primary reveal">✉️ lashatashakya9@gmail.com</a>
     </div>
   </section>
 `;
