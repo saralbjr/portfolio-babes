@@ -236,12 +236,20 @@ setActiveNav();
 // HERO
 document.getElementById('home').innerHTML = `
   <section class="hero-section">
-    <div class="container">
-      <p class="hero-eyebrow reveal">Digital Marketer<span class="typewriter-cursor">|</span></p>
-      <h1 class="hero-title reveal">Lashata Shakya</h1>
-      <div class="hero-actions reveal">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in touch</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow reveal">Digital Marketer<span class="typewriter-cursor">|</span></p>
+        <h1 class="hero-title reveal">Lashata Shakya</h1>
+        <p class="hero-desc reveal">
+          Building social-first strategies and campaigns that blend content, ads, and storytelling to grow brands.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-outline">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal">
+        <img src="babes1.png" alt="Portrait of Lashata Shakya">
       </div>
     </div>
   </section>
